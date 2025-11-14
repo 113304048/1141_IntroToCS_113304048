@@ -1,0 +1,144 @@
+body {
+    background-color: #f4f4f4; 
+    color: #333; 
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.page-header {
+    background-color: #0077b6; 
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    font-family: 'Georgia', serif;
+    margin-bottom: 0; 
+}
+
+.page-header h1 {
+    margin-top: 0;
+    font-size: 2.5em;
+}
+
+.page-header p {
+    margin-bottom: 0;
+}
+
+.navbar {
+    position: relative; 
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; 
+    background-color: #333; 
+    width: 100%; 
+}
+
+.navbar li {
+    float: left;
+    width: 25%; 
+    box-sizing: border-box; 
+    border-right: 1px solid #bbb;
+    background-color: #333; 
+}
+
+.navbar li:last-child {
+    border-right: none;
+}
+
+.navbar li a {
+    display: block;
+    color: white; 
+    text-align: center;
+    padding: 14px 0; 
+    text-decoration: none;
+    background-color: #333; 
+    font-weight: bold;
+}
+
+.navbar li a:hover:not(.dropbtn) {
+    background-color: #444; 
+    color: white;
+}
+
+.dropdown {
+    position: relative; 
+}
+
+.dropdown:hover .dropbtn,
+.dropdown .dropbtn:hover {
+    color: #0077b6; 
+    background-color: #444; 
+}
+
+.dropdown:hover .dropbtn {
+    color: #0077b6;
+    background-color: #444;
+}
+
+.dropdown .dropbtn {
+    background-color: #333; 
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute; 
+    background-color: #2c3e50; 
+    top: 100%; 
+    left: 0; 
+    width: 100%; 
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 10; 
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dropdown-content li {
+    width: 100%; 
+    border-right: none;
+    background-color: #2c3e50; 
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    background-color: transparent; 
+    font-weight: normal;
+}
+
+.dropdown-content a:hover {
+    background-color: #444; 
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+main {
+    padding: 20px; 
+}
+
+@media all {
+    body {
+        line-height: 1.6;
+    }
+}
+
+@media print {
+    .page-header, .navbar {
+        display: none;
+    }
+    body {
+        color: black;
+        background-color: white;
+        font-size: 12pt;
+    }
+    a[href]:after {
+        content: " (" attr(href) ")";
+        font-size: 9pt;
+    }
+}
