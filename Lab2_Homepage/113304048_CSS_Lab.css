@@ -1,18 +1,18 @@
 body {
-    background-color: #f4f4f4; 
-    color: #333; 
+    background-color: #f4f4f4;
+    color: #333;
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
 }
 
 .page-header {
-    background-color: #0077b6; 
+    background-color: #0077b6;
     color: white;
     padding: 20px 0;
     text-align: center;
     font-family: 'Georgia', serif;
-    margin-bottom: 0; 
+    margin-bottom: 0;
 }
 
 .page-header h1 {
@@ -25,21 +25,21 @@ body {
 }
 
 .navbar {
-    position: relative; 
+    position: relative;
     list-style-type: none;
     margin: 0;
     padding: 0;
-    overflow: hidden; 
-    background-color: #333; 
-    width: 100%; 
+    display: flow-root;
+    background-color: #333;
+    width: 100%;
 }
 
 .navbar li {
     float: left;
-    width: 25%; 
-    box-sizing: border-box; 
-    border-right: 1px solid #bbb;
-    background-color: #333; 
+    width: 25%;
+    box-sizing: border-box;
+    /* 移除分隔線 */
+    background-color: #333;
 }
 
 .navbar li:last-child {
@@ -48,27 +48,27 @@ body {
 
 .navbar li a {
     display: block;
-    color: white; 
+    color: white;
     text-align: center;
-    padding: 14px 0; 
+    padding: 14px 0;
     text-decoration: none;
-    background-color: #333; 
+    background-color: #333;
     font-weight: bold;
 }
 
 .navbar li a:hover:not(.dropbtn) {
-    background-color: #444; 
+    background-color: #444;
     color: white;
 }
 
 .dropdown {
-    position: relative; 
+    position: relative;
 }
 
 .dropdown:hover .dropbtn,
 .dropdown .dropbtn:hover {
-    color: #0077b6; 
-    background-color: #444; 
+    color: #0077b6;
+    background-color: #444;
 }
 
 .dropdown:hover .dropbtn {
@@ -77,41 +77,28 @@ body {
 }
 
 .dropdown .dropbtn {
-    background-color: #333; 
+    background-color: #333;
 }
 
 .dropdown-content {
     display: none;
-    position: absolute; 
-    background-color: #2c3e50; 
-    top: 100%; 
-    left: 0; 
-    width: 100%; 
+    position: absolute;
+    background-color: #2c3e50;
+    min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 10; 
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
+    z-index: 1;
 }
 
-.dropdown-content li {
-    width: 100%; 
-    border-right: none;
-    background-color: #2c3e50; 
-}
-
-.dropdown-content a {
+/* *** 最終修正：提高特異性並使用 !important 強制置左 *** */
+.dropdown .dropdown-content a {
     color: white;
     padding: 12px 16px;
-    text-decoration: none;
     display: block;
-    text-align: left;
-    background-color: transparent; 
-    font-weight: normal;
+    text-align: left !important; 
 }
 
 .dropdown-content a:hover {
-    background-color: #444; 
+    background-color: #444;
 }
 
 .dropdown:hover .dropdown-content {
@@ -119,7 +106,7 @@ body {
 }
 
 main {
-    padding: 20px; 
+    padding: 20px;
 }
 
 @media all {
