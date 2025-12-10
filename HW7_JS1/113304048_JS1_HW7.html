@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>113304048_1A2B</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            padding: 20px; 
+            width: 400px;
+        }
+        h1 {
+            color: #000;
+            font-size: 20px; 
+            margin-bottom: 20px;
+        }
+        h2 {
+            font-size: 16px;
+            font-weight: normal;
+            margin-bottom: 10px;
+        }
+        #input-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        #guess-input {
+            padding: 2px 5px;
+            font-size: 16px;
+            width: 100px; 
+            margin-right: 10px;
+            border: 1px solid #000;
+        }
+        button {
+            padding: 2px 10px;
+            font-size: 16px;
+            cursor: pointer;
+            border: 1px solid #000;
+            background-color: #f0f0f0;
+        }
+        #game-record-container { 
+            border: 1px solid #000; 
+            padding: 10px;
+            width: 380px; 
+            min-height: 200px;
+            box-sizing: border-box; 
+            line-height: 1.5; 
+        }
+        #game-record {
+            white-space: pre-wrap; 
+            font-size: 14px; 
+            font-family: Arial, sans-serif; 
+        }
+        .record-item {
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="hw-title">113304048_1A2B</h1>
+
+    <div id="input-container">
+        <h2>Enter 4 unique numbers </h2>
+        <input type="text" id="guess-input" maxlength="4">
+        <button id="guess-button" onclick="play()">Guess!</button>
+    </div>
+
+    <div id="game-record-container">
+        <div id="game-record-title" style="font-weight: bold; margin-bottom: 5px;">Game Record :</div>
+        <div id="game-record"></div>
+    </div>
+    
+    <script>
+        const studentId = "113304048"; 
+        document.getElementById('hw-title').textContent = studentId + "_1A2B";
+        let answer = generateAnswer(); 
+        let attempts = 0; 
+        const guessInput = document.getElementById('guess-input');
+        const gameRecord = document.getElementById('game-record');
+        const guessButton = document.getElementById('guess-button');
+        
+        console.log("答案: " + answer); 
+
+        function generateAnswer() {
+            let digits = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]; 
+            let code = [];
+            while (code.length < 4) {
+                let index = Math.floor(Math.random() * digits.length); 
+                code.push(digits[index].toString());
+                digits.splice(index, 1); 
+            }
+            return code.join(''); 
+        }
+
+        function isValid(str) {
+            str = str.trim(); 
+
+            if (str.length !== 4 || isNaN(Number(str))) {
+                alert("錯誤：請輸入剛好 4 個數字！"); 
+                return false;
+            }
+            
+            let uniqueDigits = new Set(str);
+            if (uniqueDigits.size !== 4) {
+                alert("錯誤：請輸入 4 個不重複的數字！");
+                return false;
+            }
+
+            return true;
+        }
+
+        function checkAB(guess, ans) {
+            let A = 0; 
+            let B = 0; 
+
+            for (let i = 0; i < 4; i++) {
+                if (guess[i] === ans[i]) {
+                    A++; 
+                } else if (ans.includes(guess[i])) {
+                    B++; 
+                }
+            }
+            return `${A}A${B}B`; 
+        }
+
+        function play() {
+            let guess = guessInput.value.trim();
+            
+            if (!isValid(guess)) { 
+                guessInput.value = ""; 
+                guessInput.focus();
+                return;
+            }
+
+            attempts++; 
+            let resultAB = checkAB(guess, answer);
+
+            gameRecord.innerHTML += `<div class="record-item">第${attempts}次: ${guess} → ${resultAB}</div>`;
+
+            if (resultAB === "4A0B") {
+                alert(`恭喜你猜對了！正確答案是 ${answer}。\n共猜了 ${attempts} 次。`);
+                guessInput.disabled = true; 
+                guessButton.disabled = true;
+            } else {
+                guessInput.value = ""; 
+                guessInput.focus();
+            }
+        }
+    </script>
+</body>
+</html>
