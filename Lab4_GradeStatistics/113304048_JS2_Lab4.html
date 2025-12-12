@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>113304048_JS2_Lab4</title>
+    
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+    <div class="container">
+        <h1>Grade Statistics</h1>
+
+        <div class="input-form">
+            <input type="number" id="mathGrade" min="0" max="100" required placeholder="Math">
+            <input type="number" id="englishGrade" min="0" max="100" required placeholder="English">
+            <button id="submitBtn">Submit</button>
+        </div>
+
+        <table id="gradesTable">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Math</th>
+                    <th>English</th>
+                    <th>Average</th>
+                </tr>
+            </thead>
+            <tbody id="gradesBody">
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="1">Average</td>
+                    <td id="avgMath">0.00</td>
+                    <td id="avgEnglish">0.00</td>
+                    <td id="avgOverall">0.00</td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
